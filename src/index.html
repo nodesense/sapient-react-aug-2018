@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React App</title>
+</head>
+<body>
+    
+    <!-- real dom 
+        host react App inside div#root
+    -->
+    <div id="root">
+        React is loading
+        <img src="/assets/loading.gif" />
+    </div>
+
+
+    <script src="/app.bundle.js">
+    </script>
+
+    <button id="btn">Click</button>
+
+    <script >
+        document.getElementById("btn")
+                .addEventListener("click", function () {
+                    console.trace("btn called normal ")
+                })
+    </script>
+</body>
+</html>
