@@ -2,6 +2,11 @@ import React from 'react';
 
 // class component can have state
 export default class Home extends React.Component {
+
+    static defaultProps = {
+        starter : 0
+    }
+
     constructor(props) {
         super(props)
 
@@ -16,6 +21,20 @@ export default class Home extends React.Component {
             flag: false
         }
     }
+
+    componentDidMount() {
+        this.timer = setInterval( () => {
+            console.log("Home interval ", this.state.counter);
+            this.setState({
+                counter : this.state.counter + 1
+            })
+        }, 1000);
+    }
+
+    componentWillUnmount() {
+        console.log("Home will unmount");
+        clearInterval(this.timer)
+    }
  
 
     increment() {
@@ -29,11 +48,13 @@ export default class Home extends React.Component {
         this.forceUpdate(); 
     }
 
+
+
     //creating function only once per component instance
     //ES.NEXT
     // resolve this in class scope
     decrement = () => {
-        //console.trace();
+        console.trace();
         console.log('decrement called ');
         console.log('before ', this.state.counter)
         //GOOD, immutablity
@@ -51,9 +72,9 @@ export default class Home extends React.Component {
             flag: !this.state.flag
         })
 
-        this.setState({
-            show: !this.state.show
-        })
+        // this.setState({
+        //     show: !this.state.show
+        // })
         console.log('after ', this.state.counter)
     }
 

@@ -1,7 +1,7 @@
 //main.js
 // bootstrap React App into browser
 import React from 'react';
-import {render} from 'react-dom'; // real-dom/diff
+import {render} from 'react-dom'; // real-dom/diff/queue/events
 
 import App from './app/App';
  
