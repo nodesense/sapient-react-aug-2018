@@ -16,6 +16,9 @@ export default
         case ActionTypes.DECREMENT: 
             return state - action.payload.value
 
+        case "RESET":
+            return 0
+
         default:
             return state
     }

@@ -70,6 +70,11 @@ export default class Header extends Component {
                         Redux Counter 
                 </NavLink>
 
+                  <NavLink className="button"
+                         activeClassName="success"
+                         to="/redux-cart">
+                        Redux Cart 
+                </NavLink>
 
                 <hr />
             </div>

@@ -12,6 +12,8 @@ import Counter from './components/Counter';
 
 // Note, import from container
 import ReduxCounter from './containers/ReduxCounter';
+import ReduxCart from "./redux-cart/containers/Cart";
+import ProductList from "./product/containers/ProductList";
 
 import {BrowserRouter as Router, 
         Switch, 
@@ -58,8 +60,11 @@ export default class App extends React.Component {
                     <Route path="/counter" component={Counter} />
                     
                     <Route path="/redux" component={ReduxCounter} />
-
+                    
                     <Route path="/cart" component={Cart} />
+                    <Route path="/redux-cart" component={ReduxCart} />
+                    <Route path="/products" component={ProductList} />
+
                     <Route path="/about" component={About} />
                     <Route path="/contact/:country" component={Contact} />
                     <Route path="*" component={NotFound} />

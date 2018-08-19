@@ -19,3 +19,10 @@ export const decrement = (value) => {
         payload: {value: value}
     }
 }
+
+export const empty = () => {
+    console.log('empty action creator called');
+    return {
+        type: 'RESET'
+    }
+}

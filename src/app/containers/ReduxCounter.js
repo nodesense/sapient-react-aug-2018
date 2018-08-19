@@ -2,6 +2,8 @@
 
 import {connect} from 'react-redux';
 
+import {bindActionCreators} from 'redux';
+
 import ReduxCounter 
     from "../components/ReduxCounter";
 
@@ -30,10 +32,15 @@ function mapDispatchToProps(dispatch) {
         //propName: function(){}
         increment: function() {
             let action = actions.increment(1)
+            //custom code
             dispatch(action)
         },
 
-        decrement: function() {alert("TODO")}
+        // create wrapper functions and 
+        // bind with dispatch for all the actions and 
+        // return newly created functions
+        // by calling props.actions.empty, will dispatch automatically
+        actions: bindActionCreators(actions, dispatch)
     }
 }
 
@@ -46,3 +53,5 @@ let connectDecoratorFn = connect(mapStateToProps,
 let ContainerComponent = connectDecoratorFn(ReduxCounter)
 
 export default ContainerComponent;
+
+//export default connect(mapStateToProps, mapDispatchToProps)(ReduxCounter)

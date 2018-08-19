@@ -17,9 +17,14 @@ export default function ReduxCounter(props) {
                 +1
             </button>
 
-            <button onClick={props.decrement}>
+            <button onClick={() => props.actions.decrement(1)}>
                 -1
             </button>
+
+            <button onClick={props.actions.empty}>
+                Empty
+            </button>
+
             </div>
         )
 } 

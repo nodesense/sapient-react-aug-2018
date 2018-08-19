@@ -10,7 +10,7 @@
 
 To start with repository,
 
-> git clone https://github.com/nodesense/react-workshop
+> git clone https://github.com/nodesense/sapient-react-aug-2018
 
 > cd react-workshop
 
