@@ -1,3 +1,4 @@
+// Header.js
 import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
@@ -56,6 +57,19 @@ export default class Header extends Component {
                          to="/contact/india">
                         Contact 
                 </NavLink>
+
+                 <NavLink className="button"
+                         activeClassName="success"
+                         to="/counter">
+                        Counter 
+                </NavLink>
+
+                <NavLink className="button"
+                         activeClassName="success"
+                         to="/redux">
+                        Redux Counter 
+                </NavLink>
+
 
                 <hr />
             </div>

@@ -8,12 +8,34 @@ import Home from "./components/Home";
 import Contact from './components/Contact';
 import About from './components/About';
 import NotFound from './components/NotFound';
+import Counter from './components/Counter';
 
-import Cart from "./cart/components/Cart";
+// Note, import from container
+import ReduxCounter from './containers/ReduxCounter';
 
 import {BrowserRouter as Router, 
         Switch, 
         Route} from 'react-router-dom';
+
+import Loadable from 'react-loadable';
+
+// import Cart from "./cart/components/Cart";
+
+// place holder, shown when loading takes time
+function Loading() {
+    return (
+        <div> 
+            <h1>Loading ...</h1>
+        </div>
+    )
+}
+// webpack create separate bundle due to import()
+//Cart is wrapper component, loaded only on need basis
+const Cart = Loadable({
+    loader: () => import('./cart/components/Cart'),
+    loading: Loading,
+  });
+
 
 // class component
 // react shall create object for class component
@@ -33,6 +55,10 @@ export default class App extends React.Component {
                 {/* switch shall pick first match */}
                 <Switch>
                     <Route path="/" exact component={Home} />
+                    <Route path="/counter" component={Counter} />
+                    
+                    <Route path="/redux" component={ReduxCounter} />
+
                     <Route path="/cart" component={Cart} />
                     <Route path="/about" component={About} />
                     <Route path="/contact/:country" component={Contact} />

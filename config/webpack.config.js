@@ -6,7 +6,7 @@ var path = require('path');
 var APP_DIR = path.resolve(__dirname, '../src');
 
 // //generate script and link tags dynamically with hash code
-// var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // //generate script and link tags dynamically with hash code
 // var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -88,21 +88,22 @@ var config = {
   // }),
 
     
-  //   new webpack.optimize.CommonsChunkPlugin({
-  //     name: 'vendor',
-  //     filename: 'vendor.bundle.js',
-  //     minChunks:  function(module, count) {
-  //         var context = module.context;
-  //         return context && context.indexOf('node_modules') >= 0;
-  //     },
-  // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks:  function(module, count) {
+          var context = module.context;
+          return context && context.indexOf('node_modules') >= 0;
+      },
+  }),
+
 
 
   //insert link and script tags inside index.html output file 
-  // new HtmlWebpackPlugin({
-  //   template: './src/index.html', //input file
-  //   filename: 'index.html', //output file name
-  // })
+  new HtmlWebpackPlugin({
+    template: './src/index.html', //input file
+    filename: 'index.html', //output file name
+  })
 
   ],
 
