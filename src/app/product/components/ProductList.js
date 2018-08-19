@@ -1,3 +1,4 @@
+//components/ProductList.js
 
 import React, {Component} from "react";
 import PropTypes from "prop-types";
@@ -24,6 +25,8 @@ export default class ProductList extends Component {
     
     componentDidMount() {
         //TODO: Initiate the download
+        // shall dispatch a function as an action
+        this.props.readProducts();
     }
     
     render() {

@@ -1,4 +1,4 @@
-
+//containers/ProductList.js
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
@@ -22,6 +22,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators(actions, dispatch),
+
+        readProducts: function() {
+            let actionFn = actions.fetchProducts();
+            dispatch(actionFn)
+        },
 
         addItemToCart: function(product) {
             //TODO

@@ -12,7 +12,7 @@ To start with repository,
 
 > git clone https://github.com/nodesense/sapient-react-aug-2018
 
-> cd react-workshop
+> cd sapient-react-aug-2018
 
 > npm install
 

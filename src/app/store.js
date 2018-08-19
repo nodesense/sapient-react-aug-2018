@@ -17,5 +17,30 @@ const rootReducer = combineReducers({
         product: productReducer
 })
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+function loggerMiddleware(store) {
+        return function(nextFn) {
+                return function(action) {
+                  console.log("LOGGER ", action);
+                  console.log("Type of Action", typeof action)
+
+                //   if (typeof action == 'function') {
+                //           return action(store.dispatch, store.getState); // call the action funciton
+                //           // if action is function, not forward to reducer
+                //   }
+
+                //   if (action.type == 'RESET') {
+                //           return true;
+                //           // RESET is not forwarded
+                //   }
+
+                  //forward action to next middleware
+                  // if no next middleware, then call reducers
+                  return nextFn(action);
+
+                }
+        }
+}
+
+const store = createStore(rootReducer, 
+                         applyMiddleware(loggerMiddleware, thunk))
 export default store;
